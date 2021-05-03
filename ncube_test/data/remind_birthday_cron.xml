@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="reminder_birthday_cron" model="ir.cron">
+        <field name="name">HR: Birthday Reminder</field>
+        <field name="model_id" ref="model_hr_employee"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="state">code</field>
+        <field name="code">model._run_birthday_reminder()</field>
+        <field name='interval_number'>1</field>
+        <field name='interval_type'>days</field>
+        <field name="doall" eval="True"/>
+        <field name="nextcall" eval="(DateTime.now().replace(hour=0, minute=5))"/>
+        <field name="numbercall">-1</field>
+    </record>
+</odoo>

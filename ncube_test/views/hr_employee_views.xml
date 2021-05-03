@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_reminder_view_employee_form" model="ir.ui.view">
+            <field name="name">hr.reminder.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <div id="o_work_employee_main" position="inside">
+                    <group string="Birthday reminder">
+                        <group>
+                            <field name="incl_birthday_list"/>
+                        </group>
+                        <group attrs="{'invisible': [('incl_birthday_list', '!=', True)]}">
+                            <field name="next_birthday"/>
+                            <field name="birthday_reminder_day"/>
+                        </group>
+                    </group>
+                </div>
+                <field name="birthday" position="attributes">
+                     <attribute name="attrs">{'required': [('incl_birthday_list', '=', True)]}</attribute>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

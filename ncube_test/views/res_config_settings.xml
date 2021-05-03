@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_reminder_res_config_settings_view_form"
+                model="ir.ui.view">
+            <field name="name">hr.reminder.res.config.settings.view.form
+            </field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="70"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='employee_rights_setting_container']"
+                       position="after">
+                    <h2>Special Reminder List of Birthday</h2>
+                    <div class="row mt16 o_settings_container"
+                         name="employee_reminder">
+                        <div class="col-12 col-lg-6 o_setting_box"
+                             id="employee_reminder_list">
+                            <div class="o_setting_right_pane">
+                                <label for="reminder_partner_ids"/>
+                                <div class="row">
+                                    <div class="text-muted col-lg-8">
+                                        Set partners to whom the email reminder
+                                        will be sent
+                                    </div>
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="reminder_partner_ids"
+                                               widget="many2many_tags"
+                                               class="o_light_label"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box"
+                             id="employee_reminder_number_days">
+                            <div class="o_setting_right_pane">
+                                <label for="number_days"/>
+                                <div class="row">
+                                    <div class="text-muted col-lg-8">
+                                        Set the number of days to remind before actual birthday
+                                    </div>
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="number_days"
+                                               class="o_light_label"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
